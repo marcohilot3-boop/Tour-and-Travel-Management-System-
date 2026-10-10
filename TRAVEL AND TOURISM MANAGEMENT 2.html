@@ -1,0 +1,87 @@
+<html> 
+    <head>
+        <title>Travel and tour management</title>
+    </head>
+
+    <body>
+        <header>
+            <h1>Travel and Tour Management</h1>
+        </header>
+        <hr>
+
+        <section>
+            <form>
+                <p>Enter Passenger Name:
+                    <input type = "text" id = "name" placeholder = "Enter Name" required> <br> <br>
+
+                    Destination:
+                    <select id = "destination" required>
+                        <option value = "Manila">Boracay - 2100</option>
+                        <option value = "Cebu">Palawan - 1800</option>
+                        <option value = "Tagbilaran">Cebu - 1700</option>
+                        <option value = "France">Tokyo - 2500</option>
+                        <option value = "Germany">Dubai - 3000</option>
+                    </select> <br> <br>
+
+                    Ticket Type:
+                    <select id = "Ticket Type" required>
+                        <option value = "one">One-way</option>
+                        <option value = "round">Round-trip</option>
+                    </select> <br> <br>
+
+                Number of Passengers:
+                    <input type = "number" id = "quant" placeholder = "Enter Number of Passengers" required> <br> <br>
+
+                    <input type = "button" value = "Book Ticket" onClick = "Process()"> <br> <br>
+                
+                Scheduled Flight:
+                <input type = "checkbox" name = "flight" value = "Morning" required> Morning
+                <input type = "checkbox" name = "flight" value = "Afternoon" required> Afternoon
+                <input type = "checkbox" name = "flight" value = "Evening" required> Evening
+              
+               Mode of Payment:
+               <input type = "radio" name = "payment" value = "Cash Payment" required> Cash Payment
+               <input type = "radio" name = "payment" value = "Credit Card Payment" required> Credit Card Payment
+               
+               
+               
+                <p>
+            </form>
+                <h1>Ticket Summary</h1>
+                <p id = "output"></p>
+                <hr>
+            </section>
+
+        <script>
+            function Process(){
+                var name = document.getElementById("name").value;
+                var destination = document.getElementById("destination").value;
+                var ticketType = document.getElementById("Ticket Type").value;
+                var quant = Number(document.getElementById("quant").value);
+
+                if (destination == "Boracay"){
+                    var price = 2100 ;
+                }
+                else if (destination == "Palawan"){
+
+                    var price = 1800;
+                }
+                else if (destination == "Cebu"){
+
+                    var price = 1700 ;
+                
+                }
+                else if (ticketType == "two"){
+                    var fare = price * 2;
+                }
+
+                var total = quant * price;
+
+                
+                document.getElementById("output").innerHTML = "Customer name: " + name + "<br>" + 
+                "Destination: " + destination + "<br>" + "Ticket Type: " + ticketType + "<br>" + 
+                "Number of Passengers: " + quant + "<br>" + "Total: " + total;
+
+            }
+        </script>
+</html>
